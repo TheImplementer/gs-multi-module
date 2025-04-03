@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '3.3.0' apply false
 	id 'io.spring.dependency-management' version '1.1.5'
 	id 'java'
+    id 'org.sonarqube'
 }
 
 group = 'com.example'
@@ -28,4 +29,11 @@ dependencies {
 
 tasks.withType(JavaCompile).configureEach {
 	options.compilerArgs.add("-parameters")
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectName", "Abacus Module (Test B)"
+        property "sonar.projectKey", "projB"
+    }
 }
